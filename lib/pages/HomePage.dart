@@ -1,8 +1,10 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:noldanmobililova/pages/CartPage.dart';
 import '../widgets/HomeAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:noldanmobililova/widgets/ItemsWidget.dart';
 import 'package:noldanmobililova/widgets/CategoriesWidget.dart';
-
 
 class HomePage extends StatelessWidget {
   @override
@@ -34,13 +36,16 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      margin: EdgeInsets.only(left: 5),
+                      margin: EdgeInsets.only(
+                        left: 15,
+                      ),
+                      // padding: EdgeInsets.only(top: 10),
                       height: 50,
                       width: 300,
                       child: TextFormField(
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: "Search here...",
+                          hintText: "Search not working",
                         ),
                       ),
                     ),
@@ -49,7 +54,7 @@ class HomePage extends StatelessWidget {
                       Icons.camera_alt,
                       size: 27,
                       color: Color(0xFF4C53A5),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -63,10 +68,10 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   "Categories",
                   style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF4C53A5),
-                      ),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF4C53A5),
+                  ),
                 ),
               ),
               //Category Widget
@@ -86,9 +91,49 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              //Items Widget
+              // Items Widget
               ItemsWidget(),
             ]),
+          ),
+        ],
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        onTap: (index) {
+          if (index == 0) {
+            // "Home" sahifasiga o'tish
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          } else if (index == 1) {
+            // "Cart" sahifasiga o'tish
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CartPage()),
+            );
+          } else if (index == 2) {
+            // "List" sahifasiga o'tish
+            // TODO: ListPage ni qo'shing (boshqa sahifa nomi va rasm kerak bo'ladi)
+          }
+        },
+        height: 70,
+        color: Color(0xFF4C53A5),
+        items: [
+          Icon(
+            Icons.home,
+            size: 30,
+            color: Colors.white,
+          ),
+          Icon(
+            CupertinoIcons.cart_fill,
+            size: 30,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.list,
+            size: 30,
+            color: Colors.white,
           ),
         ],
       ),

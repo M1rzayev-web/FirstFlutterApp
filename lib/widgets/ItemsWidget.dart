@@ -5,7 +5,7 @@ class ItemsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       childAspectRatio: 0.68,
-      // physics: NeverScrollableScrollPhysics(),
+      physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 2,
       shrinkWrap: true,
       children: [
@@ -39,13 +39,15 @@ class ItemsWidget extends StatelessWidget {
                     ],
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, "itemPage");
+                    },
                     child: Container(
                       margin: EdgeInsets.all(10),
                       child: Image.asset(
                         "images/$i.png",
-                        height: 120,
-                        width: 120,
+                        height: 110,
+                        width: 110,
                       ),
                     ),
                   ),
@@ -53,7 +55,7 @@ class ItemsWidget extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 8),
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Nomi",
+                      "Nom",
                       style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF4C53A5),
@@ -72,14 +74,14 @@ class ItemsWidget extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 7),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "\$55",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF4C53A5),
                           ),

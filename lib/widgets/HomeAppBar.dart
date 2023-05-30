@@ -1,4 +1,5 @@
 // import 'package:badges/badges.dart';
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget {
@@ -28,23 +29,25 @@ class HomeAppBar extends StatelessWidget {
             ),
           ),
           Spacer(),
-          //  Badge(
-          //   badgeColor: Colors.red,
-          //   padding: EdgeInsets.all(7),
-          //   badgeContent: Text(
-          //     "3",
-          //     style:TextStyle(
-          //       color: Colors.white,
-          //     ) ,
-          //   ),
-          //   child: InkWell(
-          //     onTap: (){},
-          //     child: Icon(
-          //       Icons.shopping_bag_outlined,
-          //       size: 30,
-          //     ),
-          //   ),
-          //  ),
+          Badge(
+            // badgeColor: Colors.red,
+            // padding: EdgeInsets.all(7),
+            badgeContent: Text(
+              "3",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, "cartPage");
+              },
+              child: Icon(
+                Icons.shopping_bag_outlined,
+                size: 30,
+              ),
+            ),
+          ),
         ],
       ),
     );
