@@ -115,6 +115,7 @@ class HomePage extends StatelessWidget {
           } else if (index == 2) {
             // "List" sahifasiga o'tish
             // TODO: ListPage ni qo'shing (boshqa sahifa nomi va rasm kerak bo'ladi)
+            Navigator.pushNamed(context, "menuPage");
           }
         },
         height: 70,

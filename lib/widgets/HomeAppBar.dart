@@ -1,4 +1,3 @@
-// import 'package:badges/badges.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
@@ -10,10 +9,15 @@ class HomeAppBar extends StatelessWidget {
       padding: EdgeInsets.all(25),
       child: Row(
         children: [
-          Icon(
-            Icons.sort,
-            size: 30,
-            color: Color(0xFF4C53A5),
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, "menuPage");
+            },
+            child: Icon(
+              Icons.sort,
+              size: 30,
+              color: Color(0xFF4C53A5),
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(
